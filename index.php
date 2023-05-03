@@ -1,11 +1,12 @@
 <?php
 
 require_once './Models/Movie.php';
+require_once './Models/Director.php';
 
-$american_beauty = new Movie('American Beauty', '1999', 'Sam Mendes', '2h 2min', ['Drama', 'Black Humor', 'Drama Comedy']);
-$alexander = new Movie('Alexander', '2005', 'Oliver Stone', '2h 55min', ['Drama', 'History', 'Biopic']);
-$your_name = new Movie('Your Name', '2016', 'Makoto Shinkai', '1h 52min', ['Romance', 'Anime', 'Drama']);
-$ace_ventura = new Movie('Ace Ventura', '1994', 'Tom Shadyac', '1h 26min', ['Comedy', 'Action']);
+$american_beauty = new Movie('American Beauty', '1999', new Director('Sam', 'Mendes'), '2h 2min', ['Drama', 'Black Humor', 'Drama Comedy']);
+$alexander = new Movie('Alexander', '2005', new Director('Oliver', 'Stone') , '2h 55min', ['Drama', 'History', 'Biopic']);
+$your_name = new Movie('Your Name', '2016', new Director('Makoto', 'Shinkai'), '1h 52min', ['Romance', 'Anime', 'Drama']);
+$ace_ventura = new Movie('Ace Ventura', '1994', new Director('Tom', 'Shadyac'), '1h 26min', ['Comedy', 'Action']);
 
 $movies = [$american_beauty, $alexander, $your_name, $ace_ventura];
 
@@ -54,9 +55,11 @@ $movies = [$american_beauty, $alexander, $your_name, $ace_ventura];
                     <tr>
                         <td><?= $movie->title ?></td>
                         <td><?= $movie->releaseYear ?></td>
-                        <td><?= $movie->director ?></td>
+                        <td><?= $movie->director->getFullDirectorName() ?></td>
                         <td><?= $movie->length ?></td>
-                        <td><?php foreach($movie->genres as $genre) echo $genre . '<br>'?></td> 
+                        <td><?php 
+                                foreach($movie->genres as $genre) echo $genre . '<br>'
+                            ?></td> 
                         <td><?= $movie->vote ?> star</td>
                     </tr>
     

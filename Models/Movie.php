@@ -12,7 +12,7 @@ class Movie {
         $this->vote = rand(1, 5);
     }
 
-    function __construct(string $title, string $releaseYear, string $director, string $length, array $genres) {
+    function __construct(string $title, string $releaseYear, Director $director, string $length, array $genres) {
         $this->title = $title;
         $this->releaseYear = $releaseYear;
         $this->director = $director;
