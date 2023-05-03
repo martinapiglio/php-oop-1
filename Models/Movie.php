@@ -5,19 +5,19 @@ class Movie {
     public $releaseYear;
     public $director;
     public $length;
-    public $genre;
+    public $genres;
     public $vote;
 
     public function setVote() {
         $this->vote = rand(1, 5);
     }
 
-    function __construct(string $title, string $releaseYear, string $director, string $length, string $genre) {
+    function __construct(string $title, string $releaseYear, string $director, string $length, array $genres) {
         $this->title = $title;
         $this->releaseYear = $releaseYear;
         $this->director = $director;
         $this->length = $length;
-        $this->genre = $genre;
+        $this->genres = $genres;
         $this->setVote();
     }
 }
