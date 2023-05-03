@@ -2,13 +2,7 @@
 
 require_once './Models/Movie.php';
 require_once './Models/Director.php';
-
-$american_beauty = new Movie('American Beauty', '1999', new Director('Sam', 'Mendes'), '2h 2min', ['Drama', 'Black Humor', 'Drama Comedy']);
-$alexander = new Movie('Alexander', '2005', new Director('Oliver', 'Stone') , '2h 55min', ['Drama', 'History', 'Biopic']);
-$your_name = new Movie('Your Name', '2016', new Director('Makoto', 'Shinkai'), '1h 52min', ['Romance', 'Anime', 'Drama']);
-$ace_ventura = new Movie('Ace Ventura', '1994', new Director('Tom', 'Shadyac'), '1h 26min', ['Comedy', 'Action']);
-
-$movies = [$american_beauty, $alexander, $your_name, $ace_ventura];
+require_once 'db.php'
 
 ?>
 
@@ -22,25 +16,32 @@ $movies = [$american_beauty, $alexander, $your_name, $ace_ventura];
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
+    <?php
+        include './Views/partials/navbar.php';
+    ?>
 
-        <h1>Movies</h1>
+    <div class="container px-5 py-4">
 
-        <table class="table">
+    <h2 class="pb-4">Movies</h2>
+
+        <table class="table table-striped">
     
-            <thead>
+            <thead class="table-dark">
                 <tr>
-                    <th>Title</th>
-                    <th>Release Year</th>
-                    <th>Director</th>
-                    <th>Lenght</th>
-                    <th>Genre</th>
-                    <th>Vote</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Release Year</th>
+                    <th scope="col">Director</th>
+                    <th scope="col">Lenght</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Vote</th>
                 </tr>
             </thead>
     
@@ -74,6 +75,10 @@ $movies = [$american_beauty, $alexander, $your_name, $ace_ventura];
         </table>
 
     </div>
+
+    <?php
+        include './Views/partials/footer.php';
+    ?>
     
     <!-- bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
